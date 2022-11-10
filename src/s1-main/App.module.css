@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Merienda:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap');
 
-
 .App {
     --header_height: 60px;
     font-family: 'Montserrat';
@@ -18,4 +17,6 @@
 
 .hwTitle {
     margin: 107px 0 10px 70px;
+    font-size: 22px;
+    line-height: 27px;
 }
