@@ -36,7 +36,7 @@ export const message0: MessageType = {
         name: 'Narrator',  // можно менять
     },
     message: {
-        text: '...', // можно менять
+        text: 'Hi my friend', // можно менять
         time: '22:00', // можно менять
     },
 }
