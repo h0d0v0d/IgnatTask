@@ -14,7 +14,7 @@ const Stand = () => {
         <div id={'hw4-stand'} className={s.stand}>
             <div className={s.inputs}>
                 {/*совместим со старым кодом:*/}
-                <div>
+                <div> 
                     <SuperInputText
                         id={'hw4-super-input-like-old'}
                         value={stateForAllInputs}
@@ -29,11 +29,12 @@ const Stand = () => {
                         onChangeText={setValue}
                         error={error}
                         onEnter={() => {
-                            setError(
+                            setError( 
                                 stateForAllInputs.trim()
                                     ? ''
                                     : 'Error'
                             )
+                            console.log(error) 
                             setValue('')
                         }}
                     />
