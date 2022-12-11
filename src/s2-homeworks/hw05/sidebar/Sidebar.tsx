@@ -8,7 +8,7 @@ type PropsType = {
     open: boolean
     handleClose: () => void
 }
-
+ 
 export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
     const sidebarClass = s.sidebar
         + (open ? ' ' + s.open : '')
@@ -18,39 +18,51 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
             {open && <div className={s.background} onClick={handleClose}/>}
 
             <aside className={sidebarClass}>
-                <button className={s.close} onClick={handleClose}>
-                    <img
-                        src={closeIcon}
-                        alt="close sidebar"
-                        id={'hw5-menu-close'}
-                    />
-                </button>
-
+                <div className={s.close_wrapp}>
+                    <button className={s.close} onClick={handleClose}>
+                        {/* <img
+                            src={closeIcon}
+                            alt="close sidebar"
+                            id={'hw5-menu-close'}
+                        /> */}
+                        <h2>❌</h2>
+                    </button>
+                </div>
+ 
                 <nav id={'hw5-menu'} className={s.nav}>
-                    <NavLink
-                        id={'hw5-pre-junior-link'}
-                        to={PATH.PRE_JUNIOR}
-                        onClick={handleClose}
-                        // className={...} // делает студент
-                    >
-                        Pre-junior
-                    </NavLink>
-                    <NavLink
-                        id={'hw5-junior-link'}
-                        to={PATH.JUNIOR}
-                        onClick={handleClose}
-                        // className={...} // делает студент
-                    >
-                        Junior
-                    </NavLink>
-                    <NavLink
-                        id={'hw5-junior-plus-link'}
-                        to={PATH.JUNIOR_PLUS}
-                        onClick={handleClose}
-                        // className={...} // делает студент
-                    >
-                        Junior Plus
-                    </NavLink>
+                    <div>
+                        <NavLink
+                            end
+                            id={'hw5-pre-junior-link'} 
+                            to={PATH.PRE_JUNIOR}
+                            onClick={handleClose}
+                            className={({isActive}) => {return isActive ? s.active : s.noactive}}
+                        >
+                            Pre-junior
+                        </NavLink>
+                    </div>
+                    <div>
+                        <NavLink
+                            end
+                            id={'hw5-junior-link'}
+                            to={PATH.JUNIOR}
+                            onClick={handleClose}
+                            className={({isActive}) => {return isActive ? s.active : s.noactive}}
+                        >
+                            Junior
+                        </NavLink>
+                    </div>
+                    <div>
+                        <NavLink
+                            end
+                            id={'hw5-junior-plus-link'}
+                            to={PATH.JUNIOR_PLUS}
+                            onClick={handleClose}
+                            className={({isActive}) => {return isActive ? s.active : s.noactive}}
+                        >
+                            Junior Plus
+                        </NavLink>
+                    </div>
                 </nav>
             </aside>
         </>

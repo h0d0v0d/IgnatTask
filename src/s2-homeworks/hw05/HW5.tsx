@@ -11,7 +11,7 @@ import Pages from './Pages'
 
 function HW5() {
     return (
-        <HashRouter>
+        <HashRouter> 
             {/*в gh-pages лучше работает HashRouter, с BrowserRouter скорее всего не пройдёт тест*/}
             <Layout>
                 <Pages />
