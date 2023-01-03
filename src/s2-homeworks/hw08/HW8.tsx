@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useMemo, useState} from 'react'
 import {homeWorkReducer} from './bll/homeWorkReducer'
 import s from './HW8.module.css'
 import s2 from '../../s1-main/App.module.css'
@@ -12,7 +12,7 @@ import User from './User'
 * */
 
 export type UserType = {
-    _id: number
+    _id: number 
     name: string
     age: number
 }
@@ -31,7 +31,7 @@ const HW8 = () => {
     const [people, setPeople] = useState<UserType[]>(initialPeople)
     const [currentSort, setCurrentSort] = useState('')
 
-    const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
+    const finalPeople = useMemo(() => {return people.map((u: UserType) => <User key={u._id} u={u}/>)}, [people])
 
     const sortUp = () => {
         setPeople(
