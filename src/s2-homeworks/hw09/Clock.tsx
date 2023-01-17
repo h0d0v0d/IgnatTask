@@ -14,7 +14,7 @@ function Clock() {
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
         const timerId = setInterval(() => {
             setDate(new Date()) 
-        }, 500)
+        }, 499)
         setTimerId(Number(timerId))
 
     }
@@ -64,8 +64,6 @@ function Clock() {
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
     const stringDay = getDay(date.getDay()) || <br/> // пишут студенты
     const stringMonth = getMonth(date.getMonth()) || <br/> // пишут студенты
-
-    console.log(timerId)
 
     return (
         <div className={s.clock}>
