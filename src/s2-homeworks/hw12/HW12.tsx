@@ -13,7 +13,7 @@ import { AppStoreType } from '../hw10/bll/store'
 * 4 - передать пропсы в SuperSelect
 * */
 
-const themes = [
+const themes: {id: number, value: string}[] = [
     {id: 1, value: 'light'},
     {id: 2, value: 'blue'},
     {id: 3, value: 'dark'},
@@ -29,6 +29,7 @@ const HW12 = () => {
 
     const change = (id: number) => { // дописать функцию
         dispatch(changeThemeId(id))
+        console.log(typeof themeId)
     }
 
     useEffect(() => {
@@ -47,6 +48,7 @@ const HW12 = () => {
                     className={s.select}
                     onChangeOption={change}
                     options={themes}
+                    value={themeId}
                     // сделать переключение тем
 
                 />
@@ -56,3 +58,8 @@ const HW12 = () => {
 }
 
 export default HW12
+
+const initState = {
+    themeId: 1,
+}
+
