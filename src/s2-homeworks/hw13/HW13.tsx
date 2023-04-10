@@ -43,7 +43,7 @@ const HW13 = () => {
             })
             .catch((e) => {
                 if (e.response.status) {
-                    setCode(`Ошибка ${e.response.status}!`)
+                    setCode(e.response.status+"")
                     setImage(e.response.status === 500 ? error500 : error400)
                     setText(e.response.data.errorText)
                     setInfo(e.response.data.info)
@@ -77,7 +77,7 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
-                        onClick={send(undefined)}
+                        onClick={send(false)}
                         xType={'secondary'}
                         disabled={disable}
                         // дописать
@@ -87,7 +87,7 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
-                        onClick={send(false)}
+                        onClick={send(undefined)}
                         xType={'secondary'}
                         disabled={disable}
                         // дописать
