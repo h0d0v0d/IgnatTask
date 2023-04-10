@@ -35,27 +35,24 @@ const HW13 = () => {
 
         axios.post<any>(url, {success: x})
             .then((res) => {
-                setCode('Код 200!')
+                setCode(`Код ${res.status}!`)
                 setImage(success200)
-                setText('Все ок')
-                setInfo('Код 200 значит что все ок')
+                setText(res.data.errorText)
+                setInfo(res.data.info)
+                console.log(res)
             })
             .catch((e) => {
-                if (e.response.status === 500) {
-                    setCode('Ошибка 500')
-                    setImage(error500)
-                } else if (e.response.status === 400) {
-                    setCode('Ошибка 404')
-                    setImage(error400)
+                if (e.response.status) {
+                    setCode(`Ошибка ${e.response.status}!`)
+                    setImage(e.response.status === 500 ? error500 : error400)
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
                 } else {
                     setCode('Error!')
                     setText('Network Error')
                     setInfo('Axios Error')
                     setImage(errorUnknown)
-                    return  
                 }
-                setText(e.response.data.errorText)
-                setInfo(e.response.data.info)
             })
             .finally(() => {
                 setDisable(false)
@@ -80,7 +77,7 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
-                        onClick={send(false)}
+                        onClick={send(undefined)}
                         xType={'secondary'}
                         disabled={disable}
                         // дописать
@@ -90,7 +87,7 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
-                        onClick={send(undefined)}
+                        onClick={send(false)}
                         xType={'secondary'}
                         disabled={disable}
                         // дописать
