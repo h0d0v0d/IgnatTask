@@ -34,7 +34,6 @@ const HW14 = () => {
         setLoading(true) 
         getTechs(value)
             .then((res: any) => {
-                console.log(res.data.techs)
                 setTechs(res.data.techs)
             })
             .finally(() => {
