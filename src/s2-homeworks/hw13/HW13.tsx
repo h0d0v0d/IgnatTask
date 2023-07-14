@@ -36,8 +36,8 @@ const HW13 = () => {
       .then((res) => {
         setCode("Код 200!");
         setImage(success200);
-        setText(res.data.info);
-        setInfo(res.data.errorText);
+        setText(res.data.errorText);
+        setInfo(res.data.info);
       })
       .catch((e) => {
         if (x === null) {
@@ -45,6 +45,7 @@ const HW13 = () => {
           setText("Network error");
           setInfo("Axios error");
           setImage(errorUnknown);
+          return;
         }
         if (e.response.status === 500) {
           setImage(error500);
@@ -71,7 +72,7 @@ const HW13 = () => {
             xType={"secondary"}
             disabled={info === "...loading"}
           >
-            Send trueу
+            Send true
           </SuperButton>
           <SuperButton
             id={"hw13-send-false"}
