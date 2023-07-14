@@ -41,9 +41,9 @@ const HW13 = () => {
       })
       .catch((e) => {
         if (x === null) {
-          setCode("Error");
+          setCode("Axios error"); //
           setText("Network error");
-          setInfo("Axios error");
+          setInfo("Error");
           setImage(errorUnknown);
           return;
         }
